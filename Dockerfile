@@ -2,6 +2,8 @@ FROM debian:8.5
 MAINTAINER Raphaël Snts <r@snts.io>
 
 EXPOSE 80 7331
+VOLUME ["/var/www/html"]
+VOLUME ["/var/moodledata"]
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
