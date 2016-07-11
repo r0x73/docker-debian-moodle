@@ -11,5 +11,5 @@ docker build -t debian-moodle .
 ## Usage
 ```
 docker run -d -P --name moodle-psql -e POSTGRES_DB=moodle -e POSTGRES_USER=moodle -e POSTGRES_PASSWORD=moodle postgres:latest
-docker run -d -p 80:80 -p 7331:7331 --name moodle --link moodle-psql:db -e MOODLE_URL=http://CONTAINER_IP debian-moodle
+docker run -d -p 80:80 -p 7331:7331 -v ~/local/moodledata:/var/moodledata --name moodle --link moodle-psql:db -e MOODLE_URL=http://CONTAINER_IP debian-moodle
 ```
