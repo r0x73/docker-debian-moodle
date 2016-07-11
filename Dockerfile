@@ -2,6 +2,8 @@ FROM debian:8.5
 MAINTAINER Raphaël Snts <r@snts.io>
 
 EXPOSE 80 7331
+VOLUME ["/var/www/html"]
+VOLUME ["/var/moodledata"]
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
@@ -21,7 +23,7 @@ RUN apt-get -y install git pwgen vim
 
 # Git clone Moodle 3.1
 RUN rm -rf /var/www/html
-RUN git clone -b MOODLE_31_STABLE git://git.moodle.org/moodle.git /var/www/html
+RUN git clone -b MOODLE_29_STABLE git://git.moodle.org/moodle.git /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 
 # Configure moodle
